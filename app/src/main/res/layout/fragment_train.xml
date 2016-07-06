@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <ImageView 
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:src="@drawable/ic_train"
+            />
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            android:textColor="@color/white"
+            android:text="声纹训练"
+            />
+    </LinearLayout>
+    
+    <TextView 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingMultiplier="1.2"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:text="通过朗读5段数字串，系统记录您的声音并分析出声纹特征，建立您独有的声纹模型"
+        />
+
+</LinearLayout>

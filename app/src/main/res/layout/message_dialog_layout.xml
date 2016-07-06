@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/transparent"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical"
+        android:background="@drawable/table_bg"
+        >
+        <TextView 
+            android:id="@+id/message_dialog_title"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:text="提示"
+            android:textSize="16sp"
+            android:gravity="center"
+            />
+        <View 
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#ff0000"
+            />
+        <TextView 
+            android:id="@+id/message_dialog_msg"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:lineSpacingMultiplier="1.2"
+            android:text="测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试"
+            android:padding="15dp"
+            />
+        
+        <LinearLayout 
+            android:id="@+id/message_dialog_linear"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="15dp"
+            android:visibility="gone"
+            >
+        </LinearLayout>
+        
+        <LinearLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:gravity="center"
+            >
+            <Button 
+                android:id="@+id/message_dialog_ok_btn"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:text="确定"
+                android:textColor="@color/white"
+                android:background="@drawable/btn_red_bg_small"
+                />
+            <Button 
+                android:id="@+id/message_dialog_cancel_btn"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:text="取消"
+                android:textColor="@color/white"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/btn_green_bg"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

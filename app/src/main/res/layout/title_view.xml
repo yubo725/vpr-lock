@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/light_blue" >
+    
+    <TextView 
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="标题"
+        android:layout_centerInParent="true"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        />
+    
+    <Button 
+        android:id="@+id/leftbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_alignParentLeft="true"
+        android:text="返回"
+        android:textSize="13sp"
+        android:textColor="#ffffff"
+        android:visibility="gone"
+        android:background="@drawable/title_btn_selector"
+        />
+    
+    <Button 
+        android:id="@+id/rightbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_alignParentRight="true"
+        android:text="设置"
+        android:textSize="13sp"
+        android:textColor="#ffffff"
+        android:visibility="gone"
+        android:background="@drawable/title_btn_selector"
+        />
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:background="#e3e3e3"
+        />
+
+</RelativeLayout>
