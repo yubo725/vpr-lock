@@ -2,58 +2,73 @@ package com.vpr.vprlock.view;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.drawable.AnimationDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.vpr.vprlock.R;
 
+import net.tsz.afinal.FinalActivity;
+import net.tsz.afinal.annotation.view.ViewInject;
+
 /**
- * 显示“加载中”的对话框
- * @author yubo
- *
+ * Created by yubo on 2015/7/23.
+ * 加载中提示框
  */
 public class LoadingDialog extends Dialog {
-	private AnimationDrawable animDrawable;
-	private ImageView imageView;
-	private TextView loadingTv;
 
-	public LoadingDialog(Context context, boolean cancelable,
-						 OnCancelListener cancelListener) {
-		super(context, cancelable, cancelListener);
-		init(context);
-	}
+    @ViewInject(id = R.id.loading_dialog_img)
+    ImageView loadingImg;
 
-	public LoadingDialog(Context context, int theme) {
-		super(context, theme);
-		init(context);
-	}
+    @ViewInject(id = R.id.loading_dialog_msg)
+    TextView loadingMsg;
 
-	public LoadingDialog(Context context) {
-		super(context);
-		init(context);
-	}
+    private View rootView;
+    private Context context;
+    private Animation animation;
 
-	private void init(Context context){
-		View view = LayoutInflater.from(context).inflate(R.layout.loading_dialog_layout, null);
-		setContentView(view);
-		//设置在窗口外触摸不可将窗口关闭
-		setCanceledOnTouchOutside(false);
-		initView();
-	}
+    public LoadingDialog(Context context, int theme) {
+        super(context, theme);
+        init(context);
+    }
 
-	/**设置提示的文字*/
-	public void setLoadingMsg(String msg){
-		loadingTv.setText(msg);
-	}
+    private void init(Context context){
+        this.context = context;
+        rootView = LayoutInflater.from(context).inflate(R.layout.loading_dialog, null);
+        setContentView(rootView);
+        setCancelable(true);
+        setCanceledOnTouchOutside(false);
+        FinalActivity.initInjectedView(this, rootView);
+        initView();
+    }
 
-	private void initView(){
-		imageView = (ImageView) findViewById(R.id.loadingimageview);
-		loadingTv = (TextView) findViewById(R.id.loading_msg);
-		animDrawable = (AnimationDrawable) imageView.getDrawable();
-		animDrawable.start();
-	}
+    private void initView(){
+        AccelerateDecelerateInterpolator lin = new AccelerateDecelerateInterpolator();
+        animation = AnimationUtils.loadAnimation(context, R.anim.loading_img_rotate_anim);
+        animation.setInterpolator(lin);//设置动画匀速
+    }
+
+    /**
+     * 设置提示框显示的文本
+     * @param msg
+     */
+    public void setLoadingMsg(String msg){
+        loadingMsg.setText(msg);
+    }
+
+    public void showLoadingDialog(){
+        if(!isShowing()) {
+            try {
+                loadingImg.startAnimation(animation);
+                show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 }

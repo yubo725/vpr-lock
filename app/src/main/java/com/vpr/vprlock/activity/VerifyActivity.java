@@ -5,6 +5,7 @@ import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.Html;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -39,6 +40,7 @@ public class VerifyActivity extends BaseActivity {
 	@ViewInject(id = R.id.recorderBtn, click = "record") Button recordBtn;
 
 	private SpeakerVerifier mVerifier = VPRApplication.getSpeakerVerifier();
+	private boolean disableBack = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,14 @@ public class VerifyActivity extends BaseActivity {
 
 	private void initView(){
 		titleTv.setText("声纹验证");
-		backBtn.setVisibility(View.VISIBLE);
+
+		boolean showBackBtn = getIntent().getBooleanExtra("ShowBackBtn", true);
+		if(showBackBtn) {
+			backBtn.setVisibility(View.VISIBLE);
+		}else {
+			backBtn.setVisibility(View.GONE);
+			disableBack = true;
+		}
 	}
 
 	public void record(View view){
@@ -145,7 +154,6 @@ public class VerifyActivity extends BaseActivity {
 				case ErrorCode.MSP_ERROR_NOT_FOUND:
 					centerTv.setText("模型不存在，请先注册");
 					break;
-
 				default:
 					showTip("onError Code："	+ error.getErrorCode());
 					break;
@@ -165,4 +173,11 @@ public class VerifyActivity extends BaseActivity {
 		finish();
 	}
 
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if(keyCode == KeyEvent.KEYCODE_BACK && disableBack) {
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
 }

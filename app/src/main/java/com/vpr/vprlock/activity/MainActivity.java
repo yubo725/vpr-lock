@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.vpr.vprlock.R;
 import com.vpr.vprlock.adapter.ViewPagerAdapter;
+import com.vpr.vprlock.service.LockService;
 import com.vpr.vprlock.utils.CommonUtils;
 import com.vpr.vprlock.utils.SPUtils;
 import com.vpr.vprlock.view.DotView;
@@ -48,6 +49,8 @@ public class MainActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		startService(new Intent(this, LockService.class));
 
 		//判断当前SDK版本号，如果是4.4以上，就是支持沉浸式状态栏的
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {

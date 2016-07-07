@@ -9,6 +9,7 @@ import com.vpr.vprlock.utils.CrashHandler;
 import com.vpr.vprlock.utils.SPUtils;
 
 import android.app.Application;
+import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
@@ -44,6 +45,8 @@ public class VPRApplication extends Application {
 				}
 			}
 		});
+
+
 	}
 
 	public static SpeakerVerifier getSpeakerVerifier(){

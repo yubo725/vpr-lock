@@ -2,6 +2,7 @@
 <resources>
     
     <color name="light_blue">#17B4EB</color>
+    <color name="list_selector_pressed_color">#1E17B4EB</color>
     <color name="white">#ffffff</color>
     <color name="red">#ff0000</color>
     <color name="black">#000000</color>

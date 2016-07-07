@@ -15,7 +15,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
-            android:src="@drawable/ic_launcher"
+            android:src="@mipmap/ic_launcher"
             />
         
         <TextView 
@@ -28,6 +28,15 @@
             android:layout_centerVertical="true"
             android:id="@+id/lock_app_list_item_name_tv"
             />
+
+        <ImageView
+            android:id="@+id/lock_app_list_item_checkbox"
+            android:src="@drawable/ic_checkbox_normal"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="25dp"
+            android:layout_height="25dp" />
         
     </RelativeLayout>
 

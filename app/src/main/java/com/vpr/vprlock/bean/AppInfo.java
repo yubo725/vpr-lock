@@ -4,13 +4,25 @@ import java.io.Serializable;
 
 import android.graphics.drawable.Drawable;
 
+import net.tsz.afinal.annotation.sqlite.Id;
+
 public class AppInfo implements Serializable {
 
-	private String appName = "";
-	private String packageName = "";
-	private String versionName = "";
+	@Id(column = "packageName")
+	private String packageName;
+	private String appName;
+	private String versionName;
 	private int versionCode = 0;
 	private Drawable appIcon = null;
+	private boolean selected = false;
+
+	public boolean isSelected() {
+		return selected;
+	}
+
+	public void setSelected(boolean selected) {
+		this.selected = selected;
+	}
 
 	public String getAppName() {
 		return appName;

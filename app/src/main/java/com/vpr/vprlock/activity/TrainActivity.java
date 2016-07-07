@@ -125,6 +125,7 @@ public class TrainActivity extends BaseActivity {
 				sb.append("\n");
 			}
 		}
+		Log.e("yubo", "train password: \n" + sb.toString());
 		String pwd = sb.toString();
 		centerTv.setText(pwd);
 	}

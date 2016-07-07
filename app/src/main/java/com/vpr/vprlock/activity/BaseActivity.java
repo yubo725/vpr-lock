@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.vpr.vprlock.R;
+import com.vpr.vprlock.view.LoadingDialog;
+
 public class BaseActivity extends FinalActivity {
 
-	protected ProgressDialog pd;
+	protected LoadingDialog loadingDialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +25,7 @@ public class BaseActivity extends FinalActivity {
 	}
 
 	private void initProgressDialog(){
-		pd = new ProgressDialog(this);
-		pd.setCancelable(false);
-		pd.setTitle("提示");
-		pd.setMessage("请稍等...");
+		loadingDialog = new LoadingDialog(this, R.style.loading_dialog);
 	}
 
 	protected void showTip(String msg){
